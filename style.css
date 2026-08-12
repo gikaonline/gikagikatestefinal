@@ -11,107 +11,40 @@ body{font-family:Arial,Helvetica,sans-serif}
 .language-switch a[aria-current="page"]{opacity:.45}
 .art-page.cropped{aspect-ratio:2.025/1}
 .art-page.cropped>img{position:absolute;left:0;top:0;width:100%;height:auto;transform:translateY(-12.15%)}
+.mobile-header{display:none}
 
-/* MOBILE ONLY — desktop acima permanece exatamente igual */
 @media(max-width:760px){
-  html,body{
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden;
-  }
+  html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  .site{width:100%;max-width:100%;margin:0;overflow:hidden}
+  .art-page{width:100%;max-width:100%;height:auto;overflow:hidden}
+  .art-page>img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;object-position:center top}
+  .art-page.cropped{width:100%;max-width:100%;height:auto;aspect-ratio:auto;overflow:hidden}
+  .art-page.cropped>img{position:relative;left:auto;top:auto;width:100%;max-width:100%;height:auto;transform:none;object-fit:contain;object-position:center top}
 
-  body{
-    -webkit-text-size-adjust:100%;
-    text-size-adjust:100%;
-  }
+  /* Real mobile navigation: independent from the image hotspots. */
+  .mobile-header{display:block;position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid rgba(0,0,0,.10)}
+  .mobile-header__top{display:flex;align-items:center;justify-content:space-between;min-height:46px;padding:7px 12px 5px}
+  .mobile-brand{color:#111;text-decoration:none;font-size:18px;line-height:1;font-weight:700;letter-spacing:.02em;padding:8px 4px}
+  .mobile-langs{display:flex;align-items:center;gap:3px}
+  .mobile-langs a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;text-decoration:none;font-size:18px;border-radius:6px;-webkit-tap-highlight-color:transparent}
+  .mobile-langs a[aria-current="page"]{background:#f2f2f2}
+  .mobile-header__nav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(0,0,0,.07)}
+  .mobile-header__nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 3px;color:#111;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.02em;-webkit-tap-highlight-color:transparent}
+  .mobile-header__nav a+a{border-left:1px solid rgba(0,0,0,.06)}
 
-  .site{
-    width:100%;
-    max-width:100%;
-    margin:0;
-    overflow:hidden;
-  }
-
-  .art-page{
-    position:relative;
-    width:100%;
-    max-width:100%;
-    height:auto;
-    overflow:hidden;
-  }
-
-  /* Mostra a página inteira no celular, sem zoom/corte */
-  .art-page>img{
-    display:block;
-    width:100%;
-    max-width:100%;
-    height:auto;
-    object-fit:contain;
-    object-position:center top;
-  }
-
-  /* No celular, as páginas internas deixam de ser recortadas */
-  .art-page.cropped{
-    width:100%;
-    max-width:100%;
-    aspect-ratio:auto;
-    height:auto;
-    overflow:hidden;
-  }
-
-  .art-page.cropped>img{
-    position:relative;
-    left:auto;
-    top:auto;
-    width:100%;
-    max-width:100%;
-    height:auto;
-    transform:none;
-    object-fit:contain;
-    object-position:center top;
-  }
-
-  /* Mantém as posições inline originais dos links.
-     Só melhora o toque sem mover o menu. */
-  .hotspot{
-    pointer-events:auto;
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    min-height:24px;
-  }
-
-  /* Bandeiras continuam no canto direito e ganham área de toque */
-  .language-switch{
-    right:5px;
-    top:5px;
-    gap:3px;
-    padding:3px 4px;
-    border-radius:12px;
-  }
-
-  .language-switch a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:28px;
-    height:28px;
-    font-size:16px;
-  }
+  /* Hide only the old overlay menu/flags on mobile; category/PDF/contact hotspots remain active. */
+  .language-switch{display:none!important}
+  .hotspot[aria-label="Home"],
+  .hotspot[aria-label="Work"],
+  .hotspot[aria-label="About"],
+  .hotspot[aria-label="CV"],
+  .hotspot[aria-label="Contact"]{display:none!important}
+  .hotspot{pointer-events:auto;touch-action:manipulation;min-height:34px}
 }
 
 @media(max-width:430px){
-  .hotspot{min-height:22px}
-
-  .language-switch{
-    right:4px;
-    top:4px;
-    gap:2px;
-    padding:2px 3px;
-  }
-
-  .language-switch a{
-    width:26px;
-    height:26px;
-    font-size:15px;
-  }
+  .mobile-header__top{padding-left:10px;padding-right:10px}
+  .mobile-header__nav a{font-size:11px;min-height:42px}
+  .mobile-langs a{width:32px;height:32px;font-size:17px}
+  .hotspot{min-height:32px}
 }
