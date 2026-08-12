@@ -1,0 +1,117 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:Arial,Helvetica,sans-serif}
+.site{width:100%;max-width:2560px;margin:0 auto;background:#fff}
+.art-page{position:relative;width:100%;overflow:hidden;background:#fff}
+.art-page>img{display:block;width:100%;height:auto;margin:0}
+.hotspot{position:absolute;z-index:30;display:block;background:transparent;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hotspot:focus-visible{outline:2px solid #111;outline-offset:2px}
+.language-switch{position:absolute;right:.55%;top:.45%;z-index:50;display:flex;gap:7px;align-items:center;padding:2px 4px;background:rgba(255,255,255,.92);border-radius:12px}
+.language-switch a{font-size:16px;line-height:1;text-decoration:none;filter:none}
+.language-switch a[aria-current="page"]{opacity:.45}
+.art-page.cropped{aspect-ratio:2.025/1}
+.art-page.cropped>img{position:absolute;left:0;top:0;width:100%;height:auto;transform:translateY(-12.15%)}
+
+/* MOBILE ONLY — desktop acima permanece exatamente igual */
+@media(max-width:760px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+
+  .site{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    overflow:hidden;
+  }
+
+  .art-page{
+    position:relative;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    overflow:hidden;
+  }
+
+  /* Mostra a página inteira no celular, sem zoom/corte */
+  .art-page>img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    object-position:center top;
+  }
+
+  /* No celular, as páginas internas deixam de ser recortadas */
+  .art-page.cropped{
+    width:100%;
+    max-width:100%;
+    aspect-ratio:auto;
+    height:auto;
+    overflow:hidden;
+  }
+
+  .art-page.cropped>img{
+    position:relative;
+    left:auto;
+    top:auto;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    transform:none;
+    object-fit:contain;
+    object-position:center top;
+  }
+
+  /* Mantém as posições inline originais dos links.
+     Só melhora o toque sem mover o menu. */
+  .hotspot{
+    pointer-events:auto;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    min-height:24px;
+  }
+
+  /* Bandeiras continuam no canto direito e ganham área de toque */
+  .language-switch{
+    right:5px;
+    top:5px;
+    gap:3px;
+    padding:3px 4px;
+    border-radius:12px;
+  }
+
+  .language-switch a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:28px;
+    height:28px;
+    font-size:16px;
+  }
+}
+
+@media(max-width:430px){
+  .hotspot{min-height:22px}
+
+  .language-switch{
+    right:4px;
+    top:4px;
+    gap:2px;
+    padding:2px 3px;
+  }
+
+  .language-switch a{
+    width:26px;
+    height:26px;
+    font-size:15px;
+  }
+}

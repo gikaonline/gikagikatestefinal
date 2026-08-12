@@ -1,0 +1,30 @@
+GIKA — SITE PROFISSIONAL TRILÍNGUE
+
+Idiomas:
+🇬🇧 English
+🇧🇷 Português do Brasil
+🇪🇸 Español
+
+Nesta versão:
+- o layout visual original foi preservado;
+- as fotografias/obras permanecem nas mesmas posições;
+- os textos PT e ES foram reconstruídos dentro do mesmo desenho da versão inglesa;
+- não há textos sobrepostos;
+- não há blocos brancos adicionais fora da composição;
+- as páginas continuam separadas;
+- menu e categorias são clicáveis;
+- Portfolio PDF é clicável no About;
+- CV baixa no idioma correspondente;
+- e-mail e Instagram são clicáveis;
+- as bandeiras ficam no canto superior direito;
+- nenhum arquivo individual ultrapassa 25 MB.
+
+PARA ATUALIZAR O GITHUB
+1. Extraia o ZIP no Mac.
+2. No repositório atual, use Add file > Upload files.
+3. Envie TODOS os arquivos de dentro da pasta.
+4. Confirme a substituição dos arquivos existentes e faça Commit changes.
+5. Aguarde o GitHub Pages terminar o deploy.
+6. Faça uma atualização forçada no navegador: Command + Shift + R.
+
+Não envie o ZIP fechado ao repositório; envie os arquivos extraídos.
